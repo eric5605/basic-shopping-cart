@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/application.js"></script>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+  </head>
+  <body>
+    <section class="container" id="headline">
+      <div class="row">
+        <div class="cart-title col-xs-12">
+          <h1 class="text-center">Shopping Cart</h1>
+        </div>
+      </div>
+    </section>
+
+    <section id="item-list" class="container">
+      <!-- Salmon -->
+      <div class="row item">
+          <div class="item-name col-xs-3">
+            Salmon
+          </div>
+          <div class="item-price col-xs-3">
+            $60.00
+          </div>
+          <div class="item-qty col-xs-3">
+            <label>QTY</label>
+            <input class="quantity" type="number">
+          </div>
+          <div class="col-xs-1">
+            <button class="remove">
+              Remove
+            </button>
+          </div>
+          <div class="item-subtotal col-xs-2">
+          $--.--
+          </div>
+      </div>
+      <!-- Tuna -->
+      <div class="row item">
+          <div class="item-name col-xs-3">
+            Tuna
+          </div>
+          <div class="item-price col-xs-3">
+            $50.00
+          </div>
+          <div class="item-qty col-xs-3">
+            <label>QTY</label>
+            <input class="quantity" type="number">
+          </div>
+          <div class="col-xs-1">
+            <button class="remove">
+              Remove
+            </button>
+          </div>
+          <div class="item-subtotal col-xs-2">
+          $--.--
+          </div>
+      </div>
+      <!-- Carp -->
+      <div class="row item">
+          <div class="item-name col-xs-3">
+            Carp
+          </div>
+          <div class="item-price col-xs-3">
+            $40.00
+          </div>
+          <div class="item-qty col-xs-3">
+            <label>QTY</label>
+            <input class="quantity" type="number">
+          </div>
+          <div class="col-xs-1">
+            <button class="remove">
+              Remove
+            </button>
+          </div>
+          <div class="item-subtotal col-xs-2">
+          $--.--
+          </div>
+      </div>
+
+      <!-- Pork -->
+      <div class="row item">
+          <div class="item-name col-xs-3">
+            Pork
+          </div>
+          <div class="item-price col-xs-3">
+            $50.00
+          </div>
+          <div class="item-qty col-xs-3">
+            <label>QTY</label>
+            <input class="quantity" type="number">
+          </div>
+          <div class="col-xs-1">
+            <button class="remove">
+              Remove
+            </button>
+          </div>
+          <div class="item-subtotal col-xs-2">
+          $--.--
+          </div>
+      </div>
+
+      <div class="row item">
+        <!-- Beef -->
+          <div class="item-name col-xs-3">
+            Beef
+          </div>
+          <div class="item-price col-xs-3">
+            $60.00
+          </div>
+          <div class="item-qty col-xs-3">
+            <label>QTY</label>
+            <input class="quantity" type="number">
+          </div>
+          <div class="col-xs-1">
+            <button class="remove">
+              Remove
+            </button>
+          </div>
+          <div class="item-subtotal col-xs-2">
+          $--.--
+          </div>
+      </div>
+
+      <!-- Add -->
+      <div class="row item new">
+        <div class="col-xs-2">
+          <input placeholder="apple" id="name">
+        </div>
+        <div class="col-xs-2">
+          <input placeholder="30" id="cost">
+        </div>
+        <div class="col-xs-5">
+          <button id="add-button">
+            Add
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <h1>
+          <div class="col-xs-1">
+            <button class="btn btn-primary total-button" type="submit">Total</button>
+          </div>
+          <div class="col-xs-2" id="total-price">
+            $--.--
+          </div>
+        </h1>
+      </div>
+
+  </section>
+
+  </body>
+</html>

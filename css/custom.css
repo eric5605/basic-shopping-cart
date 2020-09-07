@@ -1,0 +1,13 @@
+.new {
+  margin-top: 25px;
+}
+
+#headline {
+  margin-bottom: 20px;
+}
+body {
+  background-image: url(../images/CwxTYMEVIAAEWoO.jpeg);
+  background-size: cover;
+  backdrop-filter: blur(15px);
+  height: 550px;
+}
