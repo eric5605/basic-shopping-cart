@@ -1,14 +1,4 @@
 $(document).ready(function () {
-
-// remove-button
-  $(document).on('click', 'button.remove', function() {
-    $(this).parents('div.item').remove();
-  });
-// total-button
-  $(document).on('click', 'button.total-button', function() {
-    alert("hello House");
-  });
-
   // add item and price to List
   $(document).on('click', 'button#add-button', function () {
     var item_name = $('input#name').val();
@@ -35,9 +25,8 @@ $(document).ready(function () {
       </div> \
     </div>');
   });
-
+  var totalSum = 0;
   // collect item price and quantity add to subtotal
-  var sum = 0;
   $(document).on('input', 'input.user-qty', function() {
     // get input from user
       var currentQty = Number($(this).val());
@@ -47,13 +36,32 @@ $(document).ready(function () {
       var currentRowTotal = currentQty * currentPrice;
       $(this).parents().siblings('div.item-subtotal').text('$' + currentRowTotal);
 
-      // final total
-      console.log('currentRowTotal', currentRowTotal);
-      sum += currentRowTotal;
-      console.log('sum', sum);
-      $('div#total-price').text('$' + sum);
+      // total sum += (item-price * item-quantity)
 
+      console.log(typeof(currentRowTotal));
+      console.log(currentRowTotal);
     });
+
+    // remove-button
+      $(document).on('click', 'button.remove', function() {
+        $(this).parents('div.item').remove();
+      });
+    // total-button ???
+
+      $(document).on('click', 'button.total-button', function() {
+       var subtotals = $('div.item-subtotal').text();
+
+      });
+
+
+
+
+      // var sum = Number($(this).parent().siblings('div.item-subtotal').text().replace(/\$/,""));
+      // //
+      // console.log(sum);
+      // // console.log('sum', sum);
+      // $('div#total-price').text('$' + sum);
+
 
 
 });
