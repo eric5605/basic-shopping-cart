@@ -36,5 +36,13 @@ $(document).ready(function () {
     </div>');
   });
 
+  // collect item price and quantity
+  $(document).on('input', 'input.user-qty', function() {
+      var currentQty = $(this).val();
+      var currentPrice = $(this).parents().siblings('div.item-price').text();
+      console.log(currentPrice);
+    });
+
+    // subtotal price * quantity
 
 });
