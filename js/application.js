@@ -1,24 +1,40 @@
 $(document).ready(function () {
 
-// colelct total from input
-$('div.item-price').each(function (i, ele) {
-  // console.log($(ele).children().first().text());
-  // console.log($(ele).text());
-  var item = ($(ele).text());
-  console.log(item);
-});
-
-var currentSum = function (amt, qty) {
-  return amt * qty;
-}
-
 // remove-button
-  $('button.remove').on('click', function() {
-    $(this).parents('.row').remove();
+  $(document).on('click', 'button.remove', function() {
+    $(this).parents('div.item').remove();
   });
 // total-button
-  $('button.total-button').on('click', function() {
+  $(document).on('click', 'button.total-button', function() {
     alert("hello House");
   });
+
+  // add item and price to List
+  $(document).on('click', 'button#add-button', function () {
+    var item_name = $('input#name').val();
+    var item_cost = $('input#cost').val();
+
+    $('#item-list').prepend('<div class="row item"> \
+      <div class="item-name col-xs-3"> \ '
+      +  item_name + '\
+      </div> \
+      <div class="item-price col-xs-3"> \
+        $' + item_cost + '.00 \
+      </div> \
+      <div class="item-qty col-xs-3"> \
+        <label>QTY</label> \
+        <input class="number" type="number"> \
+      </div> \
+      <div class="col-xs-1"> \
+        <button class="remove"> \
+          Remove \
+        </button> \
+      </div> \
+      <div class="item-subtotal col-xs-2"> \
+      $--.-- \
+      </div> \
+    </div>');
+  });
+
 
 });
