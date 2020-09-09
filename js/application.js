@@ -23,7 +23,7 @@ $(document).ready(function () {
       </div> \
       <div class="item-qty col-xs-3"> \
         <label>QTY</label> \
-        <input class="number" type="number"> \
+        <input class="user-qty" type="number" value="0"> \
       </div> \
       <div class="col-xs-1"> \
         <button class="remove"> \
@@ -31,17 +31,18 @@ $(document).ready(function () {
         </button> \
       </div> \
       <div class="item-subtotal col-xs-2"> \
-      $--.-- \
+      $0 \
       </div> \
     </div>');
   });
 
-  // collect item price and quantity add to subtotal 
+  // collect item price and quantity add to subtotal
   $(document).on('input', 'input.user-qty', function() {
       var currentQty = Number($(this).val());
       var currentPrice = Number($(this).parents().siblings('div.item-price').text().replace(/\$/,""));
-      var subTotal = currentQty * currentPrice;
-      console.log(subTotal);
+      var rowSubtotal = currentQty * currentPrice;
+      console.log(rowSubtotal);
+      $(this).parents().siblings('div.item-subtotal').text('$' + rowSubtotal);
     });
 
 });
