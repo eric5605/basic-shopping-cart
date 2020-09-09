@@ -37,12 +37,23 @@ $(document).ready(function () {
   });
 
   // collect item price and quantity add to subtotal
+  var sum = 0;
   $(document).on('input', 'input.user-qty', function() {
+    // get input from user
       var currentQty = Number($(this).val());
       var currentPrice = Number($(this).parents().siblings('div.item-price').text().replace(/\$/,""));
-      var rowSubtotal = currentQty * currentPrice;
-      console.log(rowSubtotal);
-      $(this).parents().siblings('div.item-subtotal').text('$' + rowSubtotal);
+
+      // update row total with current subtotal
+      var currentRowTotal = currentQty * currentPrice;
+      $(this).parents().siblings('div.item-subtotal').text('$' + currentRowTotal);
+
+      // final total
+      console.log('currentRowTotal', currentRowTotal);
+      sum += currentRowTotal;
+      console.log('sum', sum);
+      $('div#total-price').text('$' + sum);
+
     });
+
 
 });
