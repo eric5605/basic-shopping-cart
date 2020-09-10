@@ -26,8 +26,7 @@ $(document).ready(function () {
     </div>');
   });
 
-  // collect item price and quantity and add to subtotal
-  var totalSum = 0;
+  // 1)collect item price and quantity and 2)add to subtotal and 3)add to final total
   $(document).on('input', 'input.user-qty', function() {
     // get input from user
       var currentQty = Number($(this).val());
@@ -37,27 +36,20 @@ $(document).ready(function () {
       var currentRowTotal = currentQty * currentPrice;
       $(this).parents().siblings('div.item-subtotal').text('$' + currentRowTotal);
 
-      // collect runnning totals in variable display totalSum
-      totalSum += currentPrice;
-      console.log(totalSum);
+      // collect runnning totals in variable and display totalSum
+      var totalSum = 0;
+      $('div.item-subtotal').each(function(index, value) {
+        var currentVal = Number($(value).text().replace(/\$/,""));
+         totalSum += currentVal;
+        console.log('currentVal ', currentVal);
+        console.log('totalSum ', totalSum);
+      });
+
       $('div#total-price').text('$' + totalSum);
-    });
+  });
 
     // remove-button
       $(document).on('click', 'button.remove', function() {
         $(this).parents('div.item').remove();
       });
 });
-
-
-
-
-      // var sum = Number($(this).parent().siblings('div.item-subtotal').text().replace(/\$/,""));
-      // //
-      // console.log(sum);
-      // // console.log('sum', sum);
-      // $('div#total-price').text('$' + sum);
-
-
-
-// });
