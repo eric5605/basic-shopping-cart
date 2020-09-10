@@ -5,11 +5,11 @@
 }
 
 body {
-  background-image: url(../images/CwxTYMEVIAAEWoO.jpeg);
+  background-image: url(../images/ClipartKey_1012513.png);
   background-size: cover;
-  backdrop-filter: blur(15px);
+  filter: grayscale(50%);
+  backdrop-filter: blur(55px);
   padding-bottom: 50px;
-  font-weight: bold;
 }
 
 .bottom-div {
