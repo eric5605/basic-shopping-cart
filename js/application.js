@@ -3,7 +3,7 @@ $(document).ready(function () {
   $(document).on('click', 'button#add-button', function () {
     var item_name = $('input#name').val();
     var item_cost = $('input#cost').val();
-
+   // add new elements
     $('#item-list').prepend('<div class="row item"> \
       <div class="item-name col-xs-3"> \ '
       +  item_name + '\
@@ -26,7 +26,25 @@ $(document).ready(function () {
     </div>');
   });
 
-  // 1)collect item price and quantity and 2)add to subtotal and 3)add to final total
+// total sum function.  Totals the subtotals
+  function totalSum() {
+    var currentSum = 0;
+    $('div.item-subtotal').each(function(index, value) {
+      var currentVal = Number($(value).text().replace(/\$/,""));
+       currentSum += currentVal;
+      // console.log('currentVal ', currentVal);
+      // console.log('currentSum ', currentSum);
+    });
+    $('div#total-price').text('$' + currentSum);
+  }
+
+    // remove element and get new total
+      $(document).on('click', 'button.remove', function() {
+        $(this).parents('div.item').remove();
+         totalSum();
+      });
+
+  // 1)collect item price and quantity and 2)add to subtotal and 3)display total sum
   $(document).on('input', 'input.user-qty', function() {
     // get input from user
       var currentQty = Number($(this).val());
@@ -35,21 +53,6 @@ $(document).ready(function () {
       // update row total with current subtotal
       var currentRowTotal = currentQty * currentPrice;
       $(this).parents().siblings('div.item-subtotal').text('$' + currentRowTotal);
-
-      // collect runnning totals in variable and display totalSum
-      var totalSum = 0;
-      $('div.item-subtotal').each(function(index, value) {
-        var currentVal = Number($(value).text().replace(/\$/,""));
-         totalSum += currentVal;
-        console.log('currentVal ', currentVal);
-        console.log('totalSum ', totalSum);
-      });
-
-      $('div#total-price').text('$' + totalSum);
+      totalSum();
   });
-
-    // remove-button
-      $(document).on('click', 'button.remove', function() {
-        $(this).parents('div.item').remove();
-      });
 });
